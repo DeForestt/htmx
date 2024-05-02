@@ -3496,6 +3496,10 @@ return (function () {
             var etc = responseInfo.etc;
             var requestConfig = responseInfo.requestConfig;
             var select = responseInfo.select;
+            console.log(xhr.status);
+            responseInfo.successful = xhr.status < 400;
+            console.log(responseInfo.successful);
+            responseInfo.failed = !responseInfo.successful;
 
             if (!triggerEvent(elt, 'htmx:beforeOnLoad', responseInfo)) return;
 
